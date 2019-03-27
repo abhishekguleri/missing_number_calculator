@@ -3,24 +3,28 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input =new Scanner(System.in);
-        int[] arr=new int[100];
         System.out.print("Missing number calculator:-------\nEnter no. of elements you want in list:");
         int num= input.nextInt();
-        System.out.println("enter numbers(in accending order):");
-        for(int in=0; in<num;in++){
-            arr[in]=input.nextInt();
+        if (num != 1) {
+            int[] arr = new int[num];
+            System.out.println("enter numbers(in accending order):");
+            for (int in = 0; in < num; in++) {
+                arr[in] = input.nextInt();
+            }
+            System.out.println("these are the missing numbers:");
+            for (int i = arr[0], k = 0; i < arr[num - 1]; i++, k++) {
+                if (i != arr[k]) {
+                    System.out.println(i + " , ");
+                    --k;
+                } else {
+                    System.out.println("there is no missing numbers");
+                }
+            }
         }
-        System.out.println("enter initial and last number of the array:");
-        int ini =input.nextInt();
-        int last =input.nextInt();
-        System.out.println("these are the missing number:");
-   for(int i=ini, k=0;i<last;i++,k++){
-         if(i!=arr[k]){
-           System.out.print(i+" , ");
-         --k;
-       }
+
          else {
-       }
-   }
-}
+            System.err.println("Invalid input : missing number are found in btw two limits");
+
+        }
+    }
 }
